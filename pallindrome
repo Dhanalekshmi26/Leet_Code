@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # Convert the integer to a string
+        str_x = str(x)
+        
+        # Reverse the string and compare it to the original string
+        return str_x == str_x[::-1]
+
+# Example usage:
+sol = Solution()
+print(sol.isPalindrome(121))  # Output: True
+print(sol.isPalindrome(-121)) # Output: False
+print(sol.isPalindrome(10))   # Output: False
