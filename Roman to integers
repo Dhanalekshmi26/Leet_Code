@@ -1,0 +1,31 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        # Dictionary to map Roman numerals to their integer values
+        roman_to_int = {
+            'I': 1, 'V': 5, 'X': 10,
+            'L': 50, 'C': 100,
+            'D': 500, 'M': 1000
+        }
+        
+        # Initialize the integer value
+        total = 0
+        # Get the length of the string
+        n = len(s)
+        
+        for i in range(n):
+            # If the current numeral is less than the next numeral, subtract it
+            if i < n - 1 and roman_to_int[s[i]] < roman_to_int[s[i + 1]]:
+                total -= roman_to_int[s[i]]
+            else:
+                # Otherwise, add it
+                total += roman_to_int[s[i]]
+        
+        return total
+
+# Example usage:
+sol = Solution()
+print(sol.romanToInt("III"))  # Output: 3
+print(sol.romanToInt("IV"))   # Output: 4
+print(sol.romanToInt("IX"))   # Output: 9
+print(sol.romanToInt("LVIII"))# Output: 58
+print(sol.romanToInt("MCMXCIV")) # Output: 1994
